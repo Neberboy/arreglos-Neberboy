@@ -185,6 +185,7 @@ int main() {
 
             default:
                 printf(ROJO "Opcion invalida. Ingrese un numero entre 1 y 8.\n" RESET);
+                
                 break;
             }
         }
