@@ -14,7 +14,7 @@ int main() {
     char materia[3][30];
     char entrada[100];
     float notas[3][5] = {0};
-    int opc1 = 0, val = 0, val2=0, materias_ingresadas = 0;
+    int opc1 = 0, val = 0, materias_ingresadas = 0;
     int maxestudiantes = 0, nmateria = 0, nestudiante = 0, vali;
 
     while (opc1 != 8) {
@@ -40,7 +40,10 @@ int main() {
 
             switch (opc1) {
             case 1:
-                
+                if (materias_ingresadas == 1) {
+                    printf(ROJO "Ya se ingresaron las materias. No puede ingresarlas de nuevo.\n" RESET);
+                    break;
+                }
                 printf("Ingrese las 3 materias:\n");
                 for (int i = 0; i < 3; i++) {
                     printf("Materia #%d: ", i + 1);
@@ -66,12 +69,12 @@ int main() {
                     fgets(estudiante[j], 30, stdin);
                     estudiante[j][strcspn(estudiante[j], "\n")] = 0;
                 }
-                val2++;
+                val++;
                 printf(VERDE "¡Estudiantes ingresados con exito!\n" RESET);
                 break;
 
             case 3:
-                if (val > 0 && val2>0) {
+                if (val == 2) {
                     printf("Seleccione una materia:\n");
                     for (int i = 0; i < 3; i++) {
                         printf("%d\t\t%s\n", i, materia[i]);
@@ -116,7 +119,7 @@ int main() {
                 break;
 
             case 4:
-                if (val > 0 && val2>0) {
+                if (val == 2) {
                     for (int e = 0; e < maxestudiantes; e++) {
                         float suma = 0;
                         for (int m = 0; m < 3; m++) {
@@ -131,7 +134,7 @@ int main() {
                 break;
 
             case 5:
-                if (val > 0 && val2>0) {
+                if (val == 2) {
                     for (int m = 0; m < 3; m++) {
                         float suma = 0;
                         for (int e = 0; e < maxestudiantes; e++) {
@@ -146,7 +149,7 @@ int main() {
                 break;
 
             case 6:
-                if (val > 0 && val2>0) {
+                if (val == 2) {
                     for (int m = 0; m < 3; m++) {
                         float max = notas[m][0];
                         float min = notas[m][0];
@@ -154,7 +157,7 @@ int main() {
                             if (notas[m][e] > max) max = notas[m][e];
                             if (notas[m][e] < min) min = notas[m][e];
                         }
-                        printf("Materia: %s | Maxima: %.2f | Minima: %.2f\n", materia[m], max, min);
+                        printf("Materia: %s | Máxima: %.2f | Mínima: %.2f\n", materia[m], max, min);
                     }
                 } else {
                     printf(ROJO "Debe ingresar primero las materias y los estudiantes.\n" RESET);
@@ -162,7 +165,7 @@ int main() {
                 break;
 
             case 7:
-                if (val > 0 && val2>0) {
+                if (val == 2) {
                     for (int m = 0; m < 3; m++) {
                         int aprobados = 0, reprobados = 0;
                         for (int e = 0; e < maxestudiantes; e++) {
@@ -185,7 +188,6 @@ int main() {
 
             default:
                 printf(ROJO "Opcion invalida. Ingrese un numero entre 1 y 8.\n" RESET);
-
                 break;
             }
         }
