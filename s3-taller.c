@@ -154,7 +154,7 @@ int main() {
                             if (notas[m][e] > max) max = notas[m][e];
                             if (notas[m][e] < min) min = notas[m][e];
                         }
-                        printf("Materia: %s | Máxima: %.2f | Mínima: %.2f\n", materia[m], max, min);
+                        printf("Materia: %s | Maxima: %.2f | Minima: %.2f\n", materia[m], max, min);
                     }
                 } else {
                     printf(ROJO "Debe ingresar primero las materias y los estudiantes.\n" RESET);
@@ -185,7 +185,7 @@ int main() {
 
             default:
                 printf(ROJO "Opcion invalida. Ingrese un numero entre 1 y 8.\n" RESET);
-                
+
                 break;
             }
         }
